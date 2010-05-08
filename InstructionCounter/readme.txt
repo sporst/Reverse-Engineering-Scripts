@@ -1,0 +1,1 @@
+Python script for counting the assembler instructions in an IDB file.

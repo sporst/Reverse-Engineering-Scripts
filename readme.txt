@@ -11,6 +11,9 @@ antlr_x86
 asmgen
 	Haskell program for generating x86 assembler instructions.
 	
+InstructionCounter
+	Python script for counting the assembler instructions in an IDB file.
+	
 pe_finder
 	Python script to find PE files.
 	
