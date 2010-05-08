@@ -1,0 +1,1 @@
+Simple overview of the addresses of structure entries in PE files.

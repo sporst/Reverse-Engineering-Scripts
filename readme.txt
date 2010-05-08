@@ -17,5 +17,8 @@ InstructionCounter
 pe_finder
 	Python script to find PE files.
 	
+pemap
+	Simple overview of the addresses of structure entries in PE files.
+	
 rublib
 	A high-level API for writing IDA Pro scripts in Ruby.

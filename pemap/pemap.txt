@@ -1,0 +1,146 @@
+Overview of the addresses of MZ header fields and PE header fields - v1.00 by sp; http://www.the-interweb.com
+
+MZ Header
+
+0x0000      Magic
+0x0002      Bytes on last page of file
+0x0004      Pages in file
+0x0006      Relocations
+0x0008      Size of header in paragraphs
+0x000A      Minimum extra paragraphs needed
+0x000C      Maximum extra paragraphs needed
+0x000E      Initial (relative) SS value
+0x0010      Initial SP value
+0x0012      Checksum
+0x0014      Initial IP value
+0x0016      Initial (relative) CS value
+0x0018      File address of relocation table
+0x001A      Overlay number
+0x001C      Reserved words 1a
+0x001E      Reserved words 1b
+0x0020      Reserved words 1c
+0x0022      Reserved words 1d
+0x0024      OEM Identifier
+0x0026      OEM Information
+0x0028      Reserved words 2a
+0x002A      Reserved words 2b
+0x002C      Reserved words 2c
+0x002E      Reserved words 2d
+0x0030      Reserved words 2e
+0x0032      Reserved words 2f
+0x0034      Reserved words 2g
+0x0036      Reserved words 2h
+0x0038      Reserved words 2i
+0x003A      Reserved words 2j
+0x003C      File address of new exe header
+
+PE Header
+
+0x0000     NT Signature
+0x0004     Machine
+0x0006     NumberOfSections
+0x0008     TimeDateStamp
+0x000C     PointerToSymbolTable
+0x0010     NumberOfSymbols
+0x0014     SizeOfOptionalHeader
+0x0016     Characteristics
+0x0018     Magic
+0x001A     MajorLinkerVersion
+0x001B     MinorLinkerVersion
+0x001C     SizeOfCode
+0x0020     SizeOfInitializedData
+0x0024     SizeOfUninitializedData
+0x0028     AddressOfEntryPoint
+0x002C     BaseOfCode
+0x0030     BaseOfData
+0x0034     ImageBase
+0x0038     SectionAlignment
+0x003C     FileAlignment
+0x0040     MajorOperatingSystemVersion
+0x0042     MinorOperatingSystemVersion
+0x0044     MajorImageVersion
+0x0046     MinorImageVersion
+0x0048     MajorSubsystemVersion
+0x004A     MinorSubsystemVersion
+0x004C     Reserved
+0x0050     SizeOfImage
+0x0054     SizeOfHeaders
+0x0058     CheckSum
+0x005C     Subsystem
+0x005E     DLL Characteristics
+0x0060     SizeOfStackReserve
+0x0064     SizeOfStackCommit
+0x0068     SizeOfHeapReserve
+0x006C     SizeOfHeapCommit
+0x0070     LoaderFlags
+0x0074     NumberOfRvaAndSizes
+
+Data Directories (Assuming 0x10 Data Directories exist in the file)
+
+0x0078     Export Table (Address)
+0x007C     Export Table (Size)
+0x0080     Import Table (Address)
+0x0084     Import Table (Size)
+0x0088     Resource Table (Address)
+0x008C     Resource Table (Size)
+0x0090     Exception Table (Address)
+0x0094     Exception Table (Size)
+0x0098     Certificate Table (Address)
+0x009C     Certificate Table (Size)
+0x00A0     Base Relocation Table (Address)
+0x00A4     Base Relocation Table (Size)
+0x00A8     Debug (Address)
+0x00AC     Debug (Size)
+0x00B0     Architecture (Address)
+0x00B4     Architecture (Size)
+0x00B8     Global Ptr (Address)
+0x00BC     Global Ptr (Size)
+0x00C0     TLS Table (Address)
+0x00C4     TLS Table (Size)
+0x00C8     Load Config Table (Address)
+0x00CC     Load Config Table (Size)
+0x00D0     Bound Import (Address)
+0x00D4     Bound Import (Size)
+0x00D8     IAT (Address)
+0x00DC     IAT (Size)
+0x00E0     Delay Import Descriptor (Address)
+0x00E4     Delay Import Descriptor (Size)
+0x00E8     COM+ Runtime Header (Address)
+0x00EC     COM+ Runtime Header (Size)
+0x00F0     Reserved
+0x00F4     Reserved
+
+Sections (Assuming 3 sections)
+
+0x00F8     Name (Section 1)
+0x0100     VirtualSize (Section 1)
+0x0104     VirtualAddress (Section 1)
+0x0108     SizeOfRawData (Section 1)
+0x010C     PointerToRawData (Section 1)
+0x0110     PointerToRelocations (Section 1)
+0x0114     PointerToLinenumbers (Section 1)
+0x0118     NumberOfRelocations (Section 1)
+0x011A     NumberOfLinenumbers (Section 1)
+0x011C     Characteristics (Section 1)
+
+0x0120     Name (Section 2)
+0x0128     VirtualSize (Section 2)
+0x012C     VirtualAddress (Section 2)
+0x0130     SizeOfRawData (Section 2)
+0x0134     PointerToRawData (Section 2)
+0x0138     PointerToRelocations (Section 2)
+0x013C     PointerToLinenumbers (Section 2)
+0x0140     NumberOfRelocations (Section 2)
+0x0142     NumberOfLinenumbers (Section 2)
+0x0144     Characteristics (Section 2)
+
+0x0148     Name (Section 3)
+0x0150     VirtualSize (Section 3)
+0x0154     VirtualAddress (Section 3)
+0x0158     SizeOfRawData (Section 3)
+0x015C     PointerToRawData (Section 3)
+0x0160     PointerToRelocations (Section 3)
+0x0164     PointerToLinenumbers (Section 3)
+0x0166     NumberOfRelocations (Section 3)
+0x0168     NumberOfLinenumbers (Section 3)
+0x016C     Characteristics (Section 3)
