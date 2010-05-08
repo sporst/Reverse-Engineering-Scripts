@@ -5,6 +5,9 @@ the readme.txt files in the corresponding directories.
 api_stats
 	Python script for finding unused Win32 API functions.
 
+antlr_x86
+	ANTLR grammar file for parsing x86 assembler instructions.
+	
 asmgen
 	Haskell program for generating x86 assembler instructions.
 	
