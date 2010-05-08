@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Segment</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Segment</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/rublib_rb.html">
+                rublib.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Represents a segment
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000006">base</a>&nbsp;&nbsp;
+      <a href="#M000005">class</a>&nbsp;&nbsp;
+      <a href="#M000007">comment</a>&nbsp;&nbsp;
+      <a href="#M000008">comment=</a>&nbsp;&nbsp;
+      <a href="#M000002">first_offset</a>&nbsp;&nbsp;
+      <a href="#M000003">last_offset</a>&nbsp;&nbsp;
+      <a href="#M000004">name</a>&nbsp;&nbsp;
+      <a href="#M000001">new</a>&nbsp;&nbsp;
+      <a href="#M000011">remove</a>&nbsp;&nbsp;
+      <a href="#M000009">repeatable_comment</a>&nbsp;&nbsp;
+      <a href="#M000010">repeatable_comment=</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000001" class="method-detail">
+        <a name="M000001"></a>
+
+        <div class="method-heading">
+          <a href="Segment.src/M000001.html" target="Code" class="method-signature"
+            onclick="popupCode('Segment.src/M000001.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(ida, segment)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Creates a <a href="Segment.html#M000001">new</a> <a
+href="Segment.html">Segment</a> object
+</p>
+<pre>
+ The parameter ida is an IdaRub remote object
+ The parameter segment is a segment_t object.
+
+ An exception is any of the parameters are nil
+</pre>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000006" class="method-detail">
+        <a name="M000006"></a>
+
+        <div class="method-heading">
+          <a href="Segment.src/M000006.html" target="Code" class="method-signature"
+            onclick="popupCode('Segment.src/M000006.html');return false;">
+          <span class="method-name">base</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the <a href="Segment.html#M000006">base</a> of the segment
+</p>
+<pre>
+ Return type: int
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000005" class="method-detail">
+        <a name="M000005"></a>
+
+        <div class="method-heading">
+          <a href="Segment.src/M000005.html" target="Code" class="method-signature"
+            onclick="popupCode('Segment.src/M000005.html');return false;">
+          <span class="method-name">class</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the <a href="Segment.html#M000005">class</a> of the segment
+</p>
+<pre>
+ Return type: String
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000007" class="method-detail">
+        <a name="M000007"></a>
+
+        <div class="method-heading">
+          <a href="Segment.src/M000007.html" target="Code" class="method-signature"
+            onclick="popupCode('Segment.src/M000007.html');return false;">
+          <span class="method-name">comment</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the segment <a href="Segment.html#M000007">comment</a>
+</p>
+<pre>
+ Return type: String
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000008" class="method-detail">
+        <a name="M000008"></a>
+
+        <div class="method-heading">
+          <a href="Segment.src/M000008.html" target="Code" class="method-signature"
+            onclick="popupCode('Segment.src/M000008.html');return false;">
+          <span class="method-name">comment=</span><span class="method-args">(cmt)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Changes the segment <a href="Segment.html#M000007">comment</a>
+</p>
+<pre>
+ The parameter cmt is a String containing the new segment comment.
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000002" class="method-detail">
+        <a name="M000002"></a>
+
+        <div class="method-heading">
+          <a href="Segment.src/M000002.html" target="Code" class="method-signature"
+            onclick="popupCode('Segment.src/M000002.html');return false;">
+          <span class="method-name">first_offset</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the address of the segment start
+</p>
+<pre>
+ Return type: Offset
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000003" class="method-detail">
+        <a name="M000003"></a>
+
+        <div class="method-heading">
+          <a href="Segment.src/M000003.html" target="Code" class="method-signature"
+            onclick="popupCode('Segment.src/M000003.html');return false;">
+          <span class="method-name">last_offset</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the address of the segment end
+</p>
+<pre>
+ Return type: Offset
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000004" class="method-detail">
+        <a name="M000004"></a>
+
+        <div class="method-heading">
+          <a href="Segment.src/M000004.html" target="Code" class="method-signature"
+            onclick="popupCode('Segment.src/M000004.html');return false;">
+          <span class="method-name">name</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the <a href="Segment.html#M000004">name</a> of the segment
+</p>
+<pre>
+ Return type: String
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000011" class="method-detail">
+        <a name="M000011"></a>
+
+        <div class="method-heading">
+          <a href="Segment.src/M000011.html" target="Code" class="method-signature"
+            onclick="popupCode('Segment.src/M000011.html');return false;">
+          <span class="method-name">remove</span><span class="method-args">(flags = 5)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Removes the segment
+</p>
+<pre>
+ The parameter flags is a combination of SEGDEL_PERM, SEGDEL_KEEP and SEGDEL_SILENT. SEGDEL_PERM and SEGDEL_SILENT
+ are used by default.
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000009" class="method-detail">
+        <a name="M000009"></a>
+
+        <div class="method-heading">
+          <a href="Segment.src/M000009.html" target="Code" class="method-signature"
+            onclick="popupCode('Segment.src/M000009.html');return false;">
+          <span class="method-name">repeatable_comment</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the repeatable segment <a href="Segment.html#M000007">comment</a>
+</p>
+<pre>
+ Return type: String
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000010" class="method-detail">
+        <a name="M000010"></a>
+
+        <div class="method-heading">
+          <a href="Segment.src/M000010.html" target="Code" class="method-signature"
+            onclick="popupCode('Segment.src/M000010.html');return false;">
+          <span class="method-name">repeatable_comment=</span><span class="method-args">(cmt)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Changes the repeatable segment <a href="Segment.html#M000007">comment</a>
+</p>
+<pre>
+ The parameter cmt is a String containing the new repeatable segment comment.
+</pre>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

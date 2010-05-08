@@ -1,0 +1,179 @@
+
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--
+
+    Methods
+
+  -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Methods</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="rdoc-style.css" type="text/css" />
+  <base target="docwin" />
+</head>
+<body>
+<div id="index">
+  <h1 class="section-bar">Methods</h1>
+  <div id="index-entries">
+    <a href="classes/Offset.html#M000014"><=> (Offset)</a><br />
+    <a href="classes/Instruction.html#M000082">== (Instruction)</a><br />
+    <a href="classes/SegmentList.html#M000109">[] (SegmentList)</a><br />
+    <a href="classes/IdaFile.html#M000062">[] (IdaFile)</a><br />
+    <a href="classes/FunctionChunk.html#M000132">[] (FunctionChunk)</a><br />
+    <a href="classes/Instruction.html#M000095">[] (Instruction)</a><br />
+    <a href="classes/StringList.html#M000097">[] (StringList)</a><br />
+    <a href="classes/Function.html#M000115">[] (Function)</a><br />
+    <a href="classes/SegmentList.html#M000111">add (SegmentList)</a><br />
+    <a href="classes/FunctionChunk.html#M000133">address (FunctionChunk)</a><br />
+    <a href="classes/Function.html#M000125">address (Function)</a><br />
+    <a href="classes/Offset.html#M000012">address (Offset)</a><br />
+    <a href="classes/Instruction.html#M000080">address (Instruction)</a><br />
+    <a href="classes/IdaString.html#M000101">address (IdaString)</a><br />
+    <a href="classes/Shared.html#M000148">anterior_lines (Shared)</a><br />
+    <a href="classes/Shared.html#M000144">any_name? (Shared)</a><br />
+    <a href="classes/Offset.html#M000017">ascii (Offset)</a><br />
+    <a href="classes/Offset.html#M000059">ascii? (Offset)</a><br />
+    <a href="classes/Shared.html#M000142">auto_name? (Shared)</a><br />
+    <a href="classes/Segment.html#M000006">base (Segment)</a><br />
+    <a href="classes/Offset.html#M000019">byte (Offset)</a><br />
+    <a href="classes/Offset.html#M000020">byte= (Offset)</a><br />
+    <a href="classes/Offset.html#M000050">byte? (Offset)</a><br />
+    <a href="classes/Instruction.html#M000094">byte_objects (Instruction)</a><br />
+    <a href="classes/Instruction.html#M000093">bytes (Instruction)</a><br />
+    <a href="classes/Function.html#M000123">chunks (Function)</a><br />
+    <a href="classes/Segment.html#M000005">class (Segment)</a><br />
+    <a href="classes/Offset.html#M000035">code? (Offset)</a><br />
+    <a href="classes/Segment.html#M000007">comment (Segment)</a><br />
+    <a href="classes/Function.html#M000118">comment (Function)</a><br />
+    <a href="classes/Shared.html#M000146">comment (Shared)</a><br />
+    <a href="classes/Segment.html#M000008">comment= (Segment)</a><br />
+    <a href="classes/Function.html#M000119">comment= (Function)</a><br />
+    <a href="classes/Shared.html#M000136">comment? (Shared)</a><br />
+    <a href="classes/Function.html#M000120">contains_offset? (Function)</a><br />
+    <a href="classes/IdaFile.html#M000068">crc32 (IdaFile)</a><br />
+    <a href="classes/Shared.html#M000151">crefs_from (Shared)</a><br />
+    <a href="classes/Shared.html#M000150">crefs_to (Shared)</a><br />
+    <a href="classes/Offset.html#M000036">data? (Offset)</a><br />
+    <a href="classes/Offset.html#M000048">do_ascii (Offset)</a><br />
+    <a href="classes/Offset.html#M000039">do_byte (Offset)</a><br />
+    <a href="classes/Offset.html#M000046">do_double (Offset)</a><br />
+    <a href="classes/Offset.html#M000041">do_dword (Offset)</a><br />
+    <a href="classes/Offset.html#M000045">do_float (Offset)</a><br />
+    <a href="classes/Offset.html#M000043">do_oword (Offset)</a><br />
+    <a href="classes/Offset.html#M000047">do_packed_real (Offset)</a><br />
+    <a href="classes/Offset.html#M000042">do_qword (Offset)</a><br />
+    <a href="classes/Offset.html#M000044">do_tbyte (Offset)</a><br />
+    <a href="classes/Offset.html#M000049">do_three_byte (Offset)</a><br />
+    <a href="classes/Offset.html#M000040">do_word (Offset)</a><br />
+    <a href="classes/Offset.html#M000057">double? (Offset)</a><br />
+    <a href="classes/Shared.html#M000153">drefs_from (Shared)</a><br />
+    <a href="classes/Shared.html#M000152">drefs_to (Shared)</a><br />
+    <a href="classes/Shared.html#M000141">dummy_name? (Shared)</a><br />
+    <a href="classes/Offset.html#M000025">dword (Offset)</a><br />
+    <a href="classes/Offset.html#M000026">dword= (Offset)</a><br />
+    <a href="classes/Offset.html#M000028">dword= (Offset)</a><br />
+    <a href="classes/Offset.html#M000052">dword? (Offset)</a><br />
+    <a href="classes/IdaFile.html#M000077">each (IdaFile)</a><br />
+    <a href="classes/StringList.html#M000099">each (StringList)</a><br />
+    <a href="classes/FunctionChunk.html#M000131">each (FunctionChunk)</a><br />
+    <a href="classes/Function.html#M000122">each (Function)</a><br />
+    <a href="classes/SegmentList.html#M000112">each (SegmentList)</a><br />
+    <a href="classes/Offset.html#M000016">enabled? (Offset)</a><br />
+    <a href="classes/IdaFile.html#M000076">entry_points (IdaFile)</a><br />
+    <a href="classes/Shared.html#M000135">extra_lines? (Shared)</a><br />
+    <a href="classes/IdaFile.html#M000070">filetype (IdaFile)</a><br />
+    <a href="classes/FunctionChunk.html#M000128">first_offset (FunctionChunk)</a><br />
+    <a href="classes/Segment.html#M000002">first_offset (Segment)</a><br />
+    <a href="classes/IdaFile.html#M000072">first_offset (IdaFile)</a><br />
+    <a href="classes/Shared.html#M000134">flags (Shared)</a><br />
+    <a href="classes/Offset.html#M000056">float? (Offset)</a><br />
+    <a href="classes/Offset.html#M000038">flow? (Offset)</a><br />
+    <a href="classes/IdaFile.html#M000067">function_by_name (IdaFile)</a><br />
+    <a href="classes/Shared.html#M000145">function_start? (Shared)</a><br />
+    <a href="classes/Offset.html#M000032">head? (Offset)</a><br />
+    <a href="classes/IdaFile.html#M000079">helper (IdaFile)</a><br />
+    <a href="classes/Instruction.html#M000085">instruction_size (Instruction)</a><br />
+    <a href="classes/Instruction.html#M000084">instruction_type (Instruction)</a><br />
+    <a href="classes/Function.html#M000124">instructions (Function)</a><br />
+    <a href="classes/Segment.html#M000003">last_offset (Segment)</a><br />
+    <a href="classes/FunctionChunk.html#M000129">last_offset (FunctionChunk)</a><br />
+    <a href="classes/IdaFile.html#M000073">last_offset (IdaFile)</a><br />
+    <a href="classes/Instruction.html#M000087">line (Instruction)</a><br />
+    <a href="classes/Instruction.html#M000089">manual? (Instruction)</a><br />
+    <a href="classes/Instruction.html#M000090">manual_line (Instruction)</a><br />
+    <a href="classes/Instruction.html#M000091">manual_line= (Instruction)</a><br />
+    <a href="classes/Helper_X86.html#M000106">mnemonic (Helper_X86)</a><br />
+    <a href="classes/Instruction.html#M000083">mnemonic (Instruction)</a><br />
+    <a href="classes/Shared.html#M000138">name (Shared)</a><br />
+    <a href="classes/Function.html#M000116">name (Function)</a><br />
+    <a href="classes/Segment.html#M000004">name (Segment)</a><br />
+    <a href="classes/IdaFile.html#M000063">name (IdaFile)</a><br />
+    <a href="classes/Shared.html#M000139">name= (Shared)</a><br />
+    <a href="classes/Function.html#M000117">name= (Function)</a><br />
+    <a href="classes/Shared.html#M000140">name? (Shared)</a><br />
+    <a href="classes/StringList.html#M000096">new (StringList)</a><br />
+    <a href="classes/IdaFile.html#M000061">new (IdaFile)</a><br />
+    <a href="classes/Function.html#M000114">new (Function)</a><br />
+    <a href="classes/IdaString.html#M000100">new (IdaString)</a><br />
+    <a href="classes/FunctionChunk.html#M000127">new (FunctionChunk)</a><br />
+    <a href="classes/Instruction.html#M000081">new (Instruction)</a><br />
+    <a href="classes/Offset.html#M000013">new (Offset)</a><br />
+    <a href="classes/SegmentList.html#M000107">new (SegmentList)</a><br />
+    <a href="classes/Segment.html#M000001">new (Segment)</a><br />
+    <a href="classes/Helper_X86.html#M000105">new (Helper_X86)</a><br />
+    <a href="classes/Offset.html#M000034">not_tail? (Offset)</a><br />
+    <a href="classes/IdaFile.html#M000075">number_of_entry_points (IdaFile)</a><br />
+    <a href="classes/IdaFile.html#M000066">number_of_functions (IdaFile)</a><br />
+    <a href="classes/Function.html#M000121">number_of_instructions (Function)</a><br />
+    <a href="classes/FunctionChunk.html#M000130">number_of_instructions (FunctionChunk)</a><br />
+    <a href="classes/SegmentList.html#M000108">number_of_segments (SegmentList)</a><br />
+    <a href="classes/StringList.html#M000098">number_of_strings (StringList)</a><br />
+    <a href="classes/IdaString.html#M000102">offset (IdaString)</a><br />
+    <a href="classes/Instruction.html#M000086">operand (Instruction)</a><br />
+    <a href="classes/Offset.html#M000029">original_byte (Offset)</a><br />
+    <a href="classes/Offset.html#M000031">original_dword (Offset)</a><br />
+    <a href="classes/Offset.html#M000030">original_word (Offset)</a><br />
+    <a href="classes/Offset.html#M000054">oword? (Offset)</a><br />
+    <a href="classes/Offset.html#M000058">packed_real? (Offset)</a><br />
+    <a href="classes/IdaFile.html#M000064">path (IdaFile)</a><br />
+    <a href="classes/Shared.html#M000149">posterior_lines (Shared)</a><br />
+    <a href="classes/IdaFile.html#M000069">processor_name (IdaFile)</a><br />
+    <a href="classes/Offset.html#M000027">qword (Offset)</a><br />
+    <a href="classes/Offset.html#M000053">qword? (Offset)</a><br />
+    <a href="classes/Shared.html#M000137">references? (Shared)</a><br />
+    <a href="classes/Segment.html#M000011">remove (Segment)</a><br />
+    <a href="classes/Segment.html#M000009">repeatable_comment (Segment)</a><br />
+    <a href="classes/Shared.html#M000147">repeatable_comment (Shared)</a><br />
+    <a href="classes/Segment.html#M000010">repeatable_comment= (Segment)</a><br />
+    <a href="classes/Function.html#M000113">reset (Function)</a><br />
+    <a href="classes/FunctionChunk.html#M000126">reset (FunctionChunk)</a><br />
+    <a href="classes/IdaFile.html#M000065">screen_ea (IdaFile)</a><br />
+    <a href="classes/SegmentList.html#M000110">segment_by_offset (SegmentList)</a><br />
+    <a href="classes/IdaFile.html#M000074">segments (IdaFile)</a><br />
+    <a href="classes/Instruction.html#M000092">split_instruction (Instruction)</a><br />
+    <a href="classes/IdaFile.html#M000071">start_offset (IdaFile)</a><br />
+    <a href="classes/IdaFile.html#M000078">string_list (IdaFile)</a><br />
+    <a href="classes/Offset.html#M000015">succ (Offset)</a><br />
+    <a href="classes/Offset.html#M000033">tail? (Offset)</a><br />
+    <a href="classes/Offset.html#M000055">tbyte? (Offset)</a><br />
+    <a href="classes/Offset.html#M000060">three_byte? (Offset)</a><br />
+    <a href="classes/Offset.html#M000023">three_bytes (Offset)</a><br />
+    <a href="classes/IdaString.html#M000103">type (IdaString)</a><br />
+    <a href="classes/Offset.html#M000018">unicode (Offset)</a><br />
+    <a href="classes/Offset.html#M000037">unknown? (Offset)</a><br />
+    <a href="classes/Instruction.html#M000088">unstripped_line (Instruction)</a><br />
+    <a href="classes/Shared.html#M000143">user_name? (Shared)</a><br />
+    <a href="classes/IdaString.html#M000104">value (IdaString)</a><br />
+    <a href="classes/Offset.html#M000021">word (Offset)</a><br />
+    <a href="classes/Offset.html#M000024">word= (Offset)</a><br />
+    <a href="classes/Offset.html#M000022">word= (Offset)</a><br />
+    <a href="classes/Offset.html#M000051">word? (Offset)</a><br />
+  </div>
+</div>
+</body>
+</html>

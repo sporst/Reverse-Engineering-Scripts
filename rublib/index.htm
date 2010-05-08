@@ -1,0 +1,263 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Language" content="de" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>RubLib Documentation</title>
+<style type="text/css">
+.style1 {
+	text-align: center;
+}
+.style2 {
+	font-family: "Courier New", Courier, monospace;
+}
+.style3 {
+	font-family: "Times New Roman", Times, serif;
+}
+.codeStyle {
+	background-color: #FFFFCC;
+	font-family: "Courier New", Courier, monospace;
+	border: thin solid #000000;
+}
+.outputstyle {
+	font-family: "Courier New", Courier, monospace;
+	background-color: #99CCFF;
+	border-style: solid;
+	border-width: thin;
+}
+.heading {
+	background-color: #FFCCCC;
+	text-align: center;
+}
+.style4 {
+	text-align: right;
+	font-size: small;
+}
+</style>
+</head>
+
+<body>
+
+<h2 class="style1">RubLib 0.04 - A high-level API for IdaRub&nbsp;</h2>
+<p class="style1">Sebastian Porst ( <a href="http://www.the-interweb.com">
+http://www.the-interweb.com</a> )</p>
+<p class="style1">February, 2007</p>
+<hr style="height: 2px" />
+<h3 class="heading">Contents</h3>
+<ul>
+	<li><a href="#whatis">What is RubLib?</a></li>
+	<li><a href="#copyright">Copyright notice and license</a></li>
+	<li><a href="#introduction">Introduction</a></li>
+	<li><a href="#steps">First steps</a></li>
+	<li><a href="#strategy">Usage strategy</a></li>
+	<li><a href="#examples">Examples</a></li>
+	<li><a href="#api">The RubLib API</a></li>
+	<li><a href="#todo">Todo</a></li>
+</ul>
+<h3 class="heading"><a name="whatis" class="heading"></a>What is RubLib?</h3>
+<p>RubLib is a high level API for
+<a href="http://www.metasploit.com/users/spoonm/idarub/">IdaRub</a>. The goal is 
+to maximize expressiveness and to minimize the lines of code necessary to write
+<a href="http://www.datarescue.com/idabase/index.htm">IDA Pro</a> scripts. As of 
+version 0.04 RubLib provides more than 160 methods that simplify access to 
+segments, functions, instructions and the string list of IDA projects.</p>
+<h3 class="heading"><a name="copyright"></a>Copyright notice and license</h3>
+<p>RubLib is licensed under the zlib/libpng license. Check out
+<a href="http://www.opensource.org/licenses/zlib-license.php">
+http://www.opensource.org/licenses/zlib-license.php</a> for more information.<br />
+<br />
+<span class="style2">Copyright (c) 2006 Sebastian Porst</span><br />
+<br />
+<span class="style2">This software is provided &#39;as-is&#39;, without any express or 
+implied warranty.<br />
+In no event will the authors be held liable for any damages arising from the use 
+of this software.<br />
+<br />
+Permission is granted to anyone to use this software for any purpose, including 
+commercial<br />
+applications, and to alter it and redistribute it freely, subject to the 
+following restrictions:<br />
+<br />
+1. The origin of this software must not be misrepresented; you must not claim 
+that you<br />
+wrote the original software. If you use this software in a product, an 
+acknowledgment<br />
+in the product documentation would be appreciated but is not required.<br />
+<br />
+2. Altered source versions must be plainly marked as such, and must not be 
+misrepresented<br />
+as being the original software.<br />
+<br />
+3. This notice may not be removed or altered from any source distribution.</span></p>
+
+<h3 class="heading"><a name="introduction"></a>Introduction</h3>
+<p>RubLib is the another way to write scripts for the
+<a href="http://www.datarescue.com/idabase/index.htm">
+IDA Pro</a>, the most popular disassembler for binary files. It is built upon 
+the API exposed by spoonm&#39;s IdaRub plugin. Thanks to language features provided 
+by the Ruby programming language, IdaRub can already be used to write very 
+high-level IDA Pro scripts. RubLib takes that approach to another level. RubLib 
+puts object-oriented wrappers around the API exposed by IdaRub with the primary 
+goal to minimize the number of lines the end-user has to write in his IDA Pro 
+scripts. This makes RubLib the perfect prototyping library for IDA Pro plugins.</p>
+<h3 class="heading"><a name="steps"></a>First steps</h3>
+<p>In this section familiarity with IdaRub is assumed. If you don&#39;t know how to 
+use IdaRub please consult the IdaRub helpfile.</p>
+	<h4>&nbsp;Including RubLib into your scripts</h4>
+<p>The first steps towards using RubLib are very simple. You only have to 
+include idarub and rublib in your Ruby script.</p>
+<p class="codeStyle">require &#39;idarub&#39;<br />
+require &#39;rublib&#39;</p>
+<p class="style3">If that was successful you can use RubLib.</p>
+<h4>Creating the IdaFile object</h4>
+<p class="style3">The first thing you need to do is to create an IdaFile object. 
+The IdaFile object is the central object in the RubLib API. It represents the 
+currently loaded file and you use it to access all aspects of the file.</p>
+<p class="style3">Here&#39;s how you create the IdaFile object.</p>
+<p class="codeStyle">ida, = IdaRub.auto_client<br />
+file = IdaFile.new(ida)</p>
+	<h3 class="heading"><a name="strategy"></a>Usage strategy</h3>
+<p>Here&#39;s a short guide on using RubLib. Combined with the <a href="#examples">
+examples</a> this guide provides a quick introduction to RubLib. More detailed 
+information about the RubLib API can be found in the <a href="#api">API section</a>.</p>
+<ul>
+	<li>Startup code<ul>
+		<li>Include the idarub and rublib libraries into your script</li>
+		<li>Create the IdaRub object</li>
+		<li>Create the IdaFile object</li>
+	</ul>
+	</li>
+	<li>Working with functions<ul>
+		<li>Use the array-access operator on the file object to access a 
+		function in the file</li>
+	</ul>
+	</li>
+	<li>Working with segments<ul>
+		<li>Use the segments method of your IdaFile object to get a list of all 
+		segments.</li>
+		<li>Use the array-access operator of the segment list object to access 
+		individual segments.</li>
+	</ul>
+	</li>
+	<li>Working with code lines<ul>
+		<li>Use the array-access operator on a function object to access a code 
+		line.</li>
+		<li>Alternatively it&#39;s possible to instantiate Line objects directly 
+		using the offset of the line.</li>
+	</ul>
+	</li>
+	<li>Workin with the string list<ul>
+		<li>Use the string_list method of the IdaFile object to access the 
+		string list.</li>
+		<li>Use the array-access operator on the string list to access the 
+		individual strings.</li>
+	</ul>
+	</li>
+</ul>
+<h3 class="heading"><a name="examples"></a>Examples</h3>
+<h4>Print information about the first function</h4>
+<p class="codeStyle">function = file[0]<br />
+p &quot;%s: %08X&quot; % [ function.name, function.address ]</p>
+<p class="outputstyle"><strong>Output</strong><br />
+<br />
+&quot;_FreeGlobal@0: 01001929&quot;</p>
+<h4>Print the first five lines&nbsp; in the first function</h4>
+<p class="codeStyle">function = file[0]<br />
+function[0..4].each { |line| p line.line }</p>
+<p class="outputstyle"><strong>Output</strong><br />
+<br />
+&quot;mov eax, _g_PageSetupDlg.hDevMode&quot;<br />
+&quot;test eax, eax&quot;<br />
+&quot;push esi&quot;<br />
+&quot;mov esi, ds:__imp__GlobalFree@4; GlobalFree(x)&quot;<br />
+&quot;jz short loc_100193C&quot;</p>
+<h4>Print the names of all functions in the current file</h4>
+<p class="codeStyle">file.each { |function| p function.name }</p>
+<p class="outputstyle"><strong>Output</strong><br />
+<br />
+&quot;_FreeGlobal@0&quot;<br />
+&quot;_SetPageSetupDefaults@0&quot;<br />
+&quot;_NPSize@8&quot;<br />
+&quot;_NpSaveDialogHookProc@16&quot;<br />
+&quot;_GotoAndScrollInView@4&quot;<br />
+&quot;_SkipProgramName@4&quot;<br />
+&quot;_UpdateStatusBar@4&quot;<br />
+&quot;sub_1003F4C&quot;<br />
+...</p>
+<h4>Print&nbsp; the names of all functions starting with the character &quot;_&quot;</h4>
+<p class="codeStyle">file.map { |function| function.name }.select { |function_name| 
+function_name[0] == ?_ }</p>
+<p class="outputstyle"><strong>Output<br />
+</strong><br />
+[&quot;_FreeGlobal@0&quot;, &quot;_SetPageSetupDefaults@0&quot;, &quot;_NPSize@8&quot;, &quot;_NpSaveDialogHookProc<br />
+@16&quot;, &quot;_GotoAndScrollInView@4&quot;, &quot;_SkipProgramName@4&quot;, &quot;_UpdateStatusBar@4&quot;, 
+&quot;_WinEventFunc@28&quot;, &quot;_PFileInPath@4&quot;, &quot;_NpResetMenu@4&quot;, &quot;_MergeStrings@12&quot;, 
+&quot;_AlertBox@20&quot;, &quot;_SignalCommDlgError@0&quot;, &quot;_ReplaceSel@4&quot;, &quot;_GotoDlgProc@16&quot;, 
+&quot;_fDetermineFileType@8&quot;, &quot;_StringCopyWorkerW@12&quot;, &quot;_NpOpenDialogHookProc@16&quot;, 
+&quot;_CheckSave@4&quot;, &quot;_WinMain@16&quot;, &quot;_SetTitle@4&quot;, &quot;_NPCommand@12&quot;, 
+&quot;_FileDragOpen@0&quot;, &quot;_doDrop@8&quot;, ...</p>
+<h4>Sort all functions by the number of incoming code references</h4>
+<p class="codeStyle">p file.map{ |f | [ f.name, f[0].crefs_to.length ] }.sort{ 
+|x, y| y[1] &lt;=&gt; x[1] }</p>
+<p class="outputstyle"><strong>Output<br />
+</strong><br />
+[[&quot;_RegWriteInt@12&quot;, 24], [&quot;_RegGetInt@12&quot;, 24], 
+[&quot;@__security_check_cookie@4&quot;,17], [&quot;_AlertBox@20&quot;, 14], [&quot;_SkipBlanks@4&quot;, 6], 
+[&quot;_UpdateStatusBar@4&quot;, 6], [&quot;_AlertUser_FileFail@4&quot;, 5], [&quot;_CheckSave@4&quot;, 5], 
+[&quot;sub_1003F4C&quot;, 5], [&quot;_LoadFile@8&quot;, 5], [&quot;_SetTitle@4&quot;, 5], [&quot;_NPSize@8&quot;, 4], 
+[&quot;_SaveFile@12&quot;, 4], [&quot;_RegGetString@20&quot;, 3], [&quot;_GetFileName@8&quot;, 3], 
+[&quot;_RegWriteString@12&quot;, 3], [&quot;_StringCopyWorkerW@12&quot;, 3], 
+[&quot;_GotoAndScrollInView@4&quot;, 3], [&quot;_New@4&quot;, 3], [&quot;_Search@4&quot;, 3], 
+[&quot;_ReverseEndian@12&quot;, 3], [&quot;_PrintHeaderFooter@8&quot;, 2], [&quot;_DestroyAbortWnd@0&quot;, 
+2], ...</p>
+<h4>Print all mnemonics used in the file</h4>
+<p class="codeStyle">p file.map { |f| f.map { |i| i.mnemonic } }.flatten.uniq.sort</p>
+<p class="outputstyle"><strong>Output<br />
+</strong><br />
+[&quot;add&quot;, &quot;and&quot;, &quot;call&quot;, &quot;cdq&quot;, &quot;cmp&quot;, &quot;dec&quot;, &quot;idiv&quot;, &quot;imul&quot;, &quot;inc&quot;, &quot;ja&quot;, &quot;jb&quot;, &quot;jbe&quot;, 
+&quot;jg&quot;, &quot;jge&quot;, &quot;jl&quot;, &quot;jle&quot;, &quot;jmp&quot;, &quot;jnb&quot;, &quot;jns&quot;, &quot;jnz&quot;, &quot;js&quot;, &quot;jz&quot;, &quot;lea&quot;, 
+&quot;leave&quot;, &quot;mov&quot;, &quot;movs&quot;, &quot;movsx&quot;, &quot;movzx&quot;, &quot;neg&quot;, &quot;not&quot;, &quot;or&quot;, &quot;pop&quot;, &quot;push&quot;, &quot;pushf&quot;, 
+&quot;retn&quot;, &quot;sar&quot;, &quot;sbb&quot;, &quot;setnz&quot;, &quot;setz&quot;, &quot;shl&quot;, &quot;shr&quot;, &quot;stos&quot;, &quot;sub&quot;, &quot;test&quot;, &quot;xor&quot;]</p>
+<h4>Put all function comments into an unordered HTML list</h4>
+<p class="codeStyle">print &quot;&lt;ul&gt;\n&quot;<br />
+file.select { |function| function.comment != nil }.each { |function| print &quot;&lt;li&gt;%s 
+( %08X ): %s\n&quot; % [ function.name, function.address, function.comment ] }<br />
+print &quot;&lt;/ul&gt;\n&quot;</p>
+<p class="outputstyle"><strong>Output<br />
+</strong><br />
+&lt;ul&gt;<br />
+&lt;li&gt;_NPInit@16 ( 01004565 ): First function comment<br />
+&lt;li&gt;_ReverseEndian@12 ( 01004B65 ): Second function comment<br />
+&lt;/ul&gt;</p>
+<h4>Print all strings from the string list</h4>
+<p class="codeStyle">file.string_list.each { |string| p string.value }</p>
+<p class="outputstyle"><strong>Output<br />
+</strong><br />
+&quot;RegisterPenApp&quot;<br />
+&quot;notepad.chm&quot;<br />
+&quot;hhctrl.ocx&quot;<br />
+&quot;CLSID\\{ADB880A6-D8FF-11CF-9377-00AA003B7A11}\\InprocServer32&quot;<br />
+&quot;CommDlgExtendedError&quot;<br />
+&quot;GetPrinterDriverW&quot;<br />
+&quot;OpenPrinterW&quot;<br />
+&quot;WINSPOOL.DRV&quot;<br />
+&quot;CreateStatusWindowW&quot;<br />
+&quot;COMCTL32.dll&quot;<br />
+&quot;GetCurrentProcessId&quot;<br />
+...</p>
+<h3 class="heading"><a name="api"></a>The RubLib API</h3>
+<p>Please click <a href="doc/index.html">here</a> for an automatically generated 
+documentation of the&nbsp; RubLib API. That documentation contains descriptions 
+of all methods and classes RubLib provides.</p>
+<h3 class="heading"><a name="todo"></a>Todo</h3>
+<ul>
+	<li>Load operands into operand trees</li>
+	<li>Netnodes</li>
+</ul>
+<hr style="height: 2px" />
+<p class="style4">RubLib 0.04 - February 2007</p>
+
+</body>
+
+</html>

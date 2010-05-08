@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>number_of_instructions (Function)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File rublib.rb, line 975</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">number_of_instructions</span>
+        
+                <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@inst_num</span> <span class="ruby-operator">!=</span> <span class="ruby-value">-1</span>
+                        <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@inst_num</span>
+                <span class="ruby-keyword kw">end</span>
+        
+                <span class="ruby-identifier">iter</span> = <span class="ruby-ivar">@ida</span>.<span class="ruby-constant">Func_tail_iterator_t</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@func</span>)
+                <span class="ruby-identifier">ctr</span> = <span class="ruby-value">0</span>
+                
+                <span class="ruby-keyword kw">begin</span> 
+                        <span class="ruby-identifier">start_offset</span> = <span class="ruby-identifier">iter</span>.<span class="ruby-identifier">chunk</span>().<span class="ruby-identifier">startEA</span>
+                        <span class="ruby-identifier">end_offset</span> = <span class="ruby-identifier">iter</span>.<span class="ruby-identifier">chunk</span>().<span class="ruby-identifier">endEA</span>
+                        
+                        <span class="ruby-keyword kw">for</span> <span class="ruby-identifier">addr</span> <span class="ruby-keyword kw">in</span> (<span class="ruby-identifier">start_offset</span> <span class="ruby-operator">...</span> <span class="ruby-identifier">end_offset</span>)
+                                
+                                <span class="ruby-identifier">flags</span> = <span class="ruby-ivar">@ida</span>.<span class="ruby-identifier">getFlags</span>(<span class="ruby-identifier">addr</span>)
+                                
+                                <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@ida</span>.<span class="ruby-identifier">isHead</span>(<span class="ruby-identifier">flags</span>) <span class="ruby-keyword kw">and</span> <span class="ruby-ivar">@ida</span>.<span class="ruby-identifier">isCode</span>(<span class="ruby-identifier">flags</span>)
+                                        <span class="ruby-identifier">ctr</span> = <span class="ruby-identifier">ctr</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+                                <span class="ruby-keyword kw">end</span>
+                                
+                        <span class="ruby-keyword kw">end</span>
+                <span class="ruby-keyword kw">end</span> <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">iter</span>.<span class="ruby-identifier">next</span>()
+                
+                <span class="ruby-ivar">@inst_num</span> = <span class="ruby-identifier">ctr</span>
+                
+                <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">ctr</span>
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

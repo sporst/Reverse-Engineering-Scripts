@@ -13,3 +13,6 @@ asmgen
 	
 pe_finder
 	Python script to find PE files.
+	
+rublib
+	A high-level API for writing IDA Pro scripts in Ruby.

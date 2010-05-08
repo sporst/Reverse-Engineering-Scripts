@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Function</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Function</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/rublib_rb.html">
+                rublib.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Represents a function
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000115">[]</a>&nbsp;&nbsp;
+      <a href="#M000125">address</a>&nbsp;&nbsp;
+      <a href="#M000123">chunks</a>&nbsp;&nbsp;
+      <a href="#M000118">comment</a>&nbsp;&nbsp;
+      <a href="#M000119">comment=</a>&nbsp;&nbsp;
+      <a href="#M000120">contains_offset?</a>&nbsp;&nbsp;
+      <a href="#M000122">each</a>&nbsp;&nbsp;
+      <a href="#M000124">instructions</a>&nbsp;&nbsp;
+      <a href="#M000116">name</a>&nbsp;&nbsp;
+      <a href="#M000117">name=</a>&nbsp;&nbsp;
+      <a href="#M000114">new</a>&nbsp;&nbsp;
+      <a href="#M000121">number_of_instructions</a>&nbsp;&nbsp;
+      <a href="#M000113">reset</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name">Enumerable</span>
+      </div>
+    </div>
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">index</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+Index of the function
+
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000114" class="method-detail">
+        <a name="M000114"></a>
+
+        <div class="method-heading">
+          <a href="Function.src/M000114.html" target="Code" class="method-signature"
+            onclick="popupCode('Function.src/M000114.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(ida, index)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Creates a <a href="Function.html#M000114">new</a> function object from an
+IdaRub object and the function id
+</p>
+<pre>
+ The parameter ida is an IdaRub remote object
+
+ The parameter index is a valid parameter of the function. It must not be negative
+ and it must be smaller than the number of functions in the file.
+
+ An exception is thrown if the constraints of parameter index are broken
+</pre>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000115" class="method-detail">
+        <a name="M000115"></a>
+
+        <div class="method-heading">
+          <a href="Function.src/M000115.html" target="Code" class="method-signature"
+            onclick="popupCode('Function.src/M000115.html');return false;">
+          <span class="method-name">[]</span><span class="method-args">(index)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the disassembled instruction at the given index or range
+</p>
+<pre>
+ If the parameter index is a number the instruction with the given index
+ is returned.
+
+ If the parameter index is a range a list of instructions that fill into
+ that range is returned.
+
+ Return type: Instruction or [Instruction]
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000125" class="method-detail">
+        <a name="M000125"></a>
+
+        <div class="method-heading">
+          <a href="Function.src/M000125.html" target="Code" class="method-signature"
+            onclick="popupCode('Function.src/M000125.html');return false;">
+          <span class="method-name">address</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Numeric value of the <a href="Function.html#M000125">address</a> of the
+instruction
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000123" class="method-detail">
+        <a name="M000123"></a>
+
+        <div class="method-heading">
+          <a href="Function.src/M000123.html" target="Code" class="method-signature"
+            onclick="popupCode('Function.src/M000123.html');return false;">
+          <span class="method-name">chunks</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns a list of all function <a href="Function.html#M000123">chunks</a>
+that belong to the function
+</p>
+<pre>
+  Return type: [ FunctionChunk ]
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000118" class="method-detail">
+        <a name="M000118"></a>
+
+        <div class="method-heading">
+          <a href="Function.src/M000118.html" target="Code" class="method-signature"
+            onclick="popupCode('Function.src/M000118.html');return false;">
+          <span class="method-name">comment</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+<a href="Function.html">Function</a> <a
+href="Function.html#M000118">comment</a> of the function
+</p>
+<pre>
+ Return type: String
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000119" class="method-detail">
+        <a name="M000119"></a>
+
+        <div class="method-heading">
+          <a href="Function.src/M000119.html" target="Code" class="method-signature"
+            onclick="popupCode('Function.src/M000119.html');return false;">
+          <span class="method-name">comment=</span><span class="method-args">(value)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Set the function <a href="Function.html#M000118">comment</a> of the
+function
+</p>
+<pre>
+ The parameter value is a string that contains the new function comment value.
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000120" class="method-detail">
+        <a name="M000120"></a>
+
+        <div class="method-heading">
+          <a href="Function.src/M000120.html" target="Code" class="method-signature"
+            onclick="popupCode('Function.src/M000120.html');return false;">
+          <span class="method-name">contains_offset?</span><span class="method-args">(offset)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Determines whether the function contains a given offset
+</p>
+<pre>
+ The parameter is the numeric value of the offset to test. It is
+ possible to pass an Offset object.
+
+ Return type: Bool
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000122" class="method-detail">
+        <a name="M000122"></a>
+
+        <div class="method-heading">
+          <a href="Function.src/M000122.html" target="Code" class="method-signature"
+            onclick="popupCode('Function.src/M000122.html');return false;">
+          <span class="method-name">each</span><span class="method-args">() {|Instruction.new(@ida, addr)| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Used to iterate over the <a href="Function.html#M000124">instructions</a>
+in the function
+</p>
+<pre>
+ Return type: Instruction
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000124" class="method-detail">
+        <a name="M000124"></a>
+
+        <div class="method-heading">
+          <a href="Function.src/M000124.html" target="Code" class="method-signature"
+            onclick="popupCode('Function.src/M000124.html');return false;">
+          <span class="method-name">instructions</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns a list of all <a href="Function.html#M000124">instructions</a> in
+the function.
+</p>
+<pre>
+  Return type: [ Instruction ]
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000116" class="method-detail">
+        <a name="M000116"></a>
+
+        <div class="method-heading">
+          <a href="Function.src/M000116.html" target="Code" class="method-signature"
+            onclick="popupCode('Function.src/M000116.html');return false;">
+          <span class="method-name">name</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Name of the function
+</p>
+<pre>
+ Return type: String
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000117" class="method-detail">
+        <a name="M000117"></a>
+
+        <div class="method-heading">
+          <a href="Function.src/M000117.html" target="Code" class="method-signature"
+            onclick="popupCode('Function.src/M000117.html');return false;">
+          <span class="method-name">name=</span><span class="method-args">(value)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sets the <a href="Function.html#M000116">name</a> of the function
+</p>
+<p>
+The parameter value is a string that contains the <a
+href="Function.html#M000114">new</a> <a
+href="Function.html#M000116">name</a> of the function
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000121" class="method-detail">
+        <a name="M000121"></a>
+
+        <div class="method-heading">
+          <a href="Function.src/M000121.html" target="Code" class="method-signature"
+            onclick="popupCode('Function.src/M000121.html');return false;">
+          <span class="method-name">number_of_instructions</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the number of <a href="Function.html#M000124">instructions</a> in
+the function
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000113" class="method-detail">
+        <a name="M000113"></a>
+
+        <div class="method-heading">
+          <a href="Function.src/M000113.html" target="Code" class="method-signature"
+            onclick="popupCode('Function.src/M000113.html');return false;">
+          <span class="method-name">reset</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Resets buffered values
+</p>
+<p>
+Buffered values are:
+</p>
+<pre>
+  - Number of instructions in the function
+</pre>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>
